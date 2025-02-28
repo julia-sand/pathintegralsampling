@@ -7,11 +7,11 @@ defaults:
   - model: base.yaml
   - datamodule: ou.yaml
   - callbacks: none.yaml
-  - logger: null # set logger here or use command line (e.g. `python run.py logger=wandb`)
+  - logger: wandb # set logger here or use command line (e.g. `python run.py logger=wandb`)
 
   - mode: default.yaml
 
-  - experiment: null
+  - experiment: ou.yaml
   - hparams_search: null
 
   # enable color logging
