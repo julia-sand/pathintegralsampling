@@ -150,7 +150,7 @@ def log_hyperparameters(
     datamodule: pl.LightningDataModule,
     trainer: pl.Trainer,
     callbacks: List[pl.Callback],
-    logger: List[pl.loggers.LightningLoggerBase],
+    logger: List[pl.loggers.Logger], #https://github.com/Lightning-Universe/lightning-bolts/issues/962
 ) -> None:
     """This method controls which parameters from Hydra config are saved by Lightning loggers.
 
@@ -207,7 +207,7 @@ def finish(  # pylint: disable= unused-argument
     datamodule: pl.LightningDataModule,
     trainer: pl.Trainer,
     callbacks: List[pl.Callback],
-    logger: List[pl.loggers.LightningLoggerBase],
+    logger: List[pl.loggers.Logger],#List[pl.loggers.LightningLoggerBase],
 ) -> None:
     """Makes sure everything closed properly."""
 
