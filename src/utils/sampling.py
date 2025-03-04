@@ -8,9 +8,9 @@ from jamtorch.utils import as_numpy, no_grad_func
 def generate_traj(sde_model, dt=0.01, t_end=1.0, num_sample=2000):
     # (T, B, D)
     dim = sde_model.data_ndim
-    x = th.zeros((num_sample, dim + 1)).float().cuda()
+    x = th.zeros((num_sample, dim + 1)).float()#.cuda()
     states = [as_numpy(x[:, :-1])]
-    for cur_t in th.arange(0, t_end, dt).cuda():
+    for cur_t in th.arange(0, t_end, dt):#.cuda():
         f_value = sde_model.f(cur_t, x)
         g_value = sde_model.g(cur_t, x)
         noise = th.randn_like(g_value) * np.sqrt(dt)
@@ -34,7 +34,7 @@ def generate_samples_loss(
     dim = sde_model.data_ndim
     uw_term = 0
     rtn_traj = []
-    for cur_t in th.arange(0, t_end, dt).cuda():
+    for cur_t in th.arange(0, t_end, dt):#.cuda():
         x, cur_uw_term = sde_model.step_with_uw(cur_t, x, dt)
         uw_term += cur_uw_term
         rtn_traj.append(x[:30, :-1].cpu())

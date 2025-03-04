@@ -25,7 +25,7 @@ def traj_plot(traj_len, samples, xlabel, ylabel, title="", fsave="img.png"):
 def dist_plot(samples, nll_target_fn, nll_prior_fn, fname):
     fig, ax = plt.subplots(1, 1, figsize=(7, 7))
     density, bins = np.histogram(samples, 100, density=True)
-    query_x = th.linspace(-4.5, 4.5, 100).cuda()
+    query_x = th.linspace(-4.5, 4.5, 100)#.cuda()
     target_unpdf = th.exp(-nll_target_fn(query_x.view(-1, 1)))
     target_norm_pdf = target_unpdf / th.sum(target_unpdf) / 9 * 100
     prior_unpdf = th.exp(-nll_prior_fn(query_x.view(-1, 1)))
@@ -44,9 +44,9 @@ def dist_plot(samples, nll_target_fn, nll_prior_fn, fname):
 
 @no_grad_func
 def drfit_surface(model):
-    model.cuda()
-    xs = th.linspace(-3.0, 3.0, 120).view(-1, 1).cuda()
-    ts = th.linspace(0.0, 0.99, 100).cuda()
+    #model.cuda()
+    xs = th.linspace(-3.0, 3.0, 120).view(-1, 1)#.cuda()
+    ts = th.linspace(0.0, 0.99, 100)#.cuda()
 
     values = []
     for cur_t in ts:
