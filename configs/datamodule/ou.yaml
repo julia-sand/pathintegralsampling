@@ -3,7 +3,7 @@ defaults:
 
 dataset:
   _target_: src.datamodules.datasets.ou.OUGaussianMixture
-  len_data: 5000
+  len_data: 500
   nmode: 2
   xlim: 1.0
   scale: 0.5

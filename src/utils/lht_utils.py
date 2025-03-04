@@ -212,13 +212,13 @@ def finish(  # pylint: disable= unused-argument
     """Makes sure everything closed properly."""
 
     # without this sweeps with wandb logger might crash!
-    for clogger in logger:
-        from src.logger.wandb_logger import WandbLogger
-
-        if isinstance(clogger, WandbLogger):
-            from src.logger.jam_wandb import JamWandb
-
-            JamWandb.finish()
+    #for clogger in logger:
+    #    from src.logger.wandb_logger import WandbLogger
+    #
+    #    if isinstance(clogger, WandbLogger):
+    #        from src.logger.jam_wandb import JamWandb
+    #
+    #        JamWandb.finish()
 
 
 def _custom_exception_hook(f_type, value, tb):  # pylint: disable=invalid-name
