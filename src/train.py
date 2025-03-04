@@ -83,7 +83,7 @@ def train(config: DictConfig) -> Optional[float]:
 
     # Send some parameters from config to all lightning loggers
     log.info("Logging hyperparameters!")
-    JamWandb.g_cfg = config
+    #JamWandb.g_cfg = config
     lht_utils.log_hyperparameters(
         config=config,
         model=model,

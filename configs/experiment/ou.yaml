@@ -8,8 +8,8 @@ defaults:
   - override /trainer: default.yaml
   - override /model: base.yaml
   - override /datamodule: ou.yaml
-  - override /callbacks: null
-  - override /logger: null
+  - override /callbacks: none.yaml 
+  - override /logger: csv.yaml
 
 # all parameters below will be merged with parameters from default configurations set above
 # this allows you to overwrite only specified parameters
@@ -19,26 +19,15 @@ defaults:
 name: "ou"
 
 seed: 12345
-print_config: false
+print_config: true
 
 trainer:
   min_epochs: 1
   max_epochs: 10
   max_steps: 300
-  log_every_n_steps: 20
+  log_every_n_steps: 5
 
-  weights_summary: null
-
-callbacks:
-  sample:
-    _target_: src.callbacks.ou_cb.OUSample
-    every_n: 25
-
-  traj:
-    _target_: src.callbacks.ou_cb.VizSampleTraj
-    every_n: 25
-    traj_num: 100
-    viz_traj_len: 100
+  #weights_summary: null
 
 logger:
   wandb:

@@ -6,10 +6,10 @@ defaults:
   - trainer: default.yaml
   - model: base.yaml
   - datamodule: ou.yaml
-  - callbacks: none.yaml
-  - logger: csv # set logger here or use command line (e.g. `python run.py logger=wandb`)
+  - callbacks: default.yaml
+  - logger: csv.yaml # set logger here or use command line (e.g. `python run.py logger=wandb`)
 
-  - mode: default.yaml
+  - mode: exp.yaml
 
   - experiment: ou.yaml
   - hparams_search: null
