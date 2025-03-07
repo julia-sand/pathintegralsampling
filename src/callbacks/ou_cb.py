@@ -5,7 +5,7 @@ from pytorch_lightning import Callback
 
 from src.callbacks.metric_cb import VizSampleDist
 from src.viz.ou import dist_plot, traj_plot
-from src.viz.wandb_fig import wandb_img
+#from src.viz.wandb_fig import wandb_img
 
 
 class OUSample(VizSampleDist):
@@ -20,7 +20,7 @@ class OUSample(VizSampleDist):
             pl_module.nll_prior_fn,
             fname,
         )
-        wandb_img("x", fname, trainer.global_step)
+        #wandb_img("x", fname, trainer.global_step)
         if pl_module.data_ndim < 5:
             pl_module.log("ksd", trainer.datamodule.dataset.ksd(samples))
 
@@ -37,7 +37,7 @@ class HMTOUSample(OUSample):
             pl_module.sde_model.nll_prior_x,
             fname,
         )
-        wandb_img("x", fname, trainer.global_step)
+        #wandb_img("x", fname, trainer.global_step)
         if pl_module.data_ndim < 5:
             pl_module.log("ksd", trainer.datamodule.dataset.ksd(samples_x))
 
@@ -49,7 +49,7 @@ class HMTOUSample(OUSample):
             pl_module.nll_target_v,
             fname,
         )
-        wandb_img("vel", fname, trainer.global_step)
+        #wandb_img("vel", fname, trainer.global_step)
 
 
 class VizSampleTraj(Callback):
@@ -71,6 +71,6 @@ class VizSampleTraj(Callback):
                 title=f"Iter {trainer.global_step:04d}",
                 fsave=f"traj-{trainer.global_step:04d}.png",
             )
-            wandb_img(
-                "traj", f"traj-{trainer.global_step:04d}.png", trainer.global_step
-            )
+            #wandb_img(
+            #    "traj", f"traj-{trainer.global_step:04d}.png", trainer.global_step
+            #)

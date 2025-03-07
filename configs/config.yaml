@@ -4,7 +4,7 @@
 defaults:
   - _self_
   - trainer: default.yaml
-  - model: base.yaml
+  - model: base.yaml #change to base for training, use test for testing etc.
   - datamodule: ou.yaml
   - callbacks: default.yaml
   - logger: csv.yaml # set logger here or use command line (e.g. `python run.py logger=wandb`)

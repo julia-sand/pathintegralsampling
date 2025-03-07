@@ -36,7 +36,6 @@ class BaseModel(LightningModule):
         self.dt = cfg.dt
         self.t_end = cfg.t_end
         self.register_buffer("ts", torch.tensor([1e-12, self.t_end]))
-        self.instantiate()
 
         # this line allows to access init params with 'self.hparams' attribute
         # it also ensures init params will be stored in ckpt

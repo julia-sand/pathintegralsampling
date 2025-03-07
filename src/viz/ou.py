@@ -6,7 +6,7 @@ from jamtorch.utils import as_numpy, no_grad_func
 
 
 # pylint: disable=invalid-name
-def traj_plot(traj_len, samples, xlabel, ylabel, title="", fsave="img.png"):
+def traj_plot(traj_len, samples, xlabel, ylabel, title="test", fsave="img.png"):
     # samples = samples.squeeze().t().cpu()
     # (T,B,D)->(B,T,D)
     samples = rearrange(samples, "t b d -> b t d")

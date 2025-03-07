@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from jamtorch.utils import as_numpy
 
-from .wandb_fig import wandb_img
+#from .wandb_fig import wandb_img
 
 
 def viz_sample(sample, title, fsave, sample_num=50000):
