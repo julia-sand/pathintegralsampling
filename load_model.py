@@ -1,6 +1,6 @@
 #this script **should** load the model from a user input checkpoint and 
 #make some nice plots ---- TBD 
-#times i cried: x
+
 
 #imports - do we really need all these? 
 import hydra
