@@ -1,9 +1,5 @@
 # [Path Integral Sampler: a stochastic control approach for sampling](https://arxiv.org/abs/2111.15141)
-
-
-[![PIS Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1NOHGt2iHoETgbSh4z7dLep95-zN8FNKL?usp=sharing)
-
-![PIS](asserts/pis.png)
+some notes: The code is adapted so that it will run on later versions of pytorch lightning. Also removed logger tools that required signup (eg wandb), additional files and configured it for the OU process experiment. changed the dataloader so that can also now be run on CPU during testing.
 
 ## Setup
 
@@ -22,11 +18,13 @@ poetry install
 ```shell
 pip install .
 ```
+Note: when I installed the package jam manually using pip, I also needed to add the file meta.py (definition of as_numpy function) 
+
 
 ## Reproduce
 
 ```
-python run.py experiment=ou.yaml logger=wandb
+python run.py experiment=ou.yaml logger=csv
 ```
 
 See the [folder](configs/experiment) for more experiment configs.
